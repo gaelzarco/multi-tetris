@@ -1,5 +1,9 @@
-# Ignore build dir
+# Ignore dirs
 build/
+gcm.cache/
 
 # Ignore compiled c++ programs
 *.[oac]
+
+# Ignore binaries
+game

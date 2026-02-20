@@ -3,8 +3,8 @@
 /// @date   02-10-2026
 /// @brief  Idk what game this is yet.
 
-#include <print>
-#include <cstdlib>
+import <print>;
+import <raylib.h>;
 
 // =============================================================================
 // ADT(S)
@@ -22,16 +22,16 @@ public:
     };
 
     /// @brief Default parameterized constructor
-    explicit Game(State s = State::Menu) : state(s) {}
+    explicit Game(State state = State::Menu) : m_state(state) {}
 
     /// @brief  State getter
     /// @return Game state
-    State get_state(void) const noexcept { return state; }
+    State get_state(void) const noexcept { return m_state; }
     /// @brief State setter
-    void set_state(State s) { state = s; }
+    void set_state(State state) { m_state = state; }
 
 private:
-    State state;
+    State m_state;
 };
 
 /// @brief Network related methods
@@ -66,7 +66,7 @@ int main(void) {
             break;
     }
 
-    return EXIT_SUCCESS;
+    return 0;
 }
 
 // EOF game.cxx
