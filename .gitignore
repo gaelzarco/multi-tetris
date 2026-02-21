@@ -1,6 +1,7 @@
 # Ignore dirs
 build/
 gcm.cache/
+.cache/
 
 # Ignore compiled c++ programs
 *.[oac]
