@@ -22,16 +22,16 @@ public:
     };
 
     /// @brief Default parameterized constructor
-    explicit Game(State state = State::Menu) : m_state(state) {}
+    explicit Game(State state = State::Menu) : state_(state) {}
 
     /// @brief  State getter
     /// @return Game state
-    State get_state(void) const noexcept { return m_state; }
+    State get_state(void) const noexcept { return state_; }
     /// @brief State setter
-    void set_state(State state) { m_state = state; }
+    void set_state(State state) { state_ = state; }
 
 private:
-    State m_state;
+    State state_;
 };
 
 /// @brief Network related methods
@@ -41,13 +41,16 @@ private:
 };
 
 // =============================================================================
-// ENTRY-POINT
+// MAIN
 // =============================================================================
+constexpr const int SCREEN_WIDTH  = 1080;
+constexpr const int SCREEN_HEIGHT = 720;
+constexpr const int TARGET_FPS    = 144;
+
 int main(void) {
     Game game{};
 
     std::print("[LOG] Game state: ");
-
     switch (game.get_state()) {
         case Game::State::Menu:
             std::println("Menu");
@@ -65,6 +68,15 @@ int main(void) {
             std::println("Fail");
             break;
     }
+
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Multitet");
+    InitAudioDevice();
+    SetTargetFPS(TARGET_FPS);
+
+    while (!WindowShouldClose()) {
+    }
+
+    CloseWindow();
 
     return 0;
 }
